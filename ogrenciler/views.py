@@ -25,6 +25,7 @@ def ogrenci_listele(request):
     else:
       return redirect('ogrenci_goster')
   return redirect('ogrenci_bos')
+  
 def ogrenci_ders_ekle(request, pk):
   ogrenci = get_object_or_404(Ogrenci, pk=pk)
   if request.method == 'POST':
