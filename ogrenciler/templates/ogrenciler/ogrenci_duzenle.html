@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Kullanıcı oluşturma</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ ogrenci_form.as_p }}
+  <input type="submit" value="Değiştir.">
+</form>
+{% endblock %}

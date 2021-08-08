@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Başvuru yapan öğrenciler</h1>
+<table class="table table-success table-striped">
+  <tr>
+    <th>Öğrenci Adı Soyadı</th>
+  </tr>
+{% for ogrenci in ogrenciler %}
+  <tr>
+    <td><a href="ogrenci/ayrinti/{{ ogrenci.user.pk }}">{{ogrenci.user.first_name}}</a></td>
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}

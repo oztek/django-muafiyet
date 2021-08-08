@@ -1,0 +1,17 @@
+{% extends 'universiteler/base.html' %}
+{% block content %}
+		<div>
+			<h1><a href="{% url 'universite_duzenle' pk=universite.pk %}">{{ universite.isim }} </a></h1>
+			<p>{{ universite.zaman }} </p>
+			<p>{{ universite.user.first_name }} </p>
+			{% for bolum in bolumler %}
+				<p>{{ bolum.isim }}</p>
+			{% endfor %}
+			
+			<form method="POST">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<button type='submit'>Yeni Bölüm Ekle</button>
+			</form>
+		</div>
+{% endblock %}

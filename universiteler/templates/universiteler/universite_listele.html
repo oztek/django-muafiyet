@@ -1,0 +1,10 @@
+{% extends 'universiteler/base.html' %}
+{% block content %}
+	{% for uni in universiteler %}	
+		<div>
+			<h1><a href="{% url 'universite_goster' pk=uni.pk %}">{{ uni.isim }} </a></h1>
+			<p>{{ uni.zaman }} </p>
+			<p>{{ uni.user.first_name }} </p>
+		</div>
+	{% endfor %}
+{% endblock %}

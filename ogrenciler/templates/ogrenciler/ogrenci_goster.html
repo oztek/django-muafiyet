@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Öğrenci Bilgileri</h1>
+  <p>Öğrenci No:{{ ogrenci.no }} Öğrencinin Adı Soyadı: {{ ogrenci.user.first_name }} {{ogrenci.user.last_name }}</p>
+  <p>Geldiği Üniversitesi: {{ ogrenci.universite.isim }} </p>
+  <p>Geldiği Bölümü: {{ ogrenci.bolum.isim }}</p>
+  <p>Aldığı Dersler</p>
+  <table>
+    <tr>
+      <th>Dersin Kodu</th>
+      <th>Dersin Adı</th>
+      <th>AKTS</th>
+      <th>İçeriği</th>
+      <th>İşlem</th>
+    </tr>
+    {% for ders in dersler %}
+    <tr>
+      <td>{{ ders.kodu }}</td>
+      <td>{{ ders.adi }}</td>
+      <td>{{ ders.akts }}</td> 
+      <td><textarea class='form-control' rows="5" cols="50" readonly>{{ ders.icerik }}</textarea> </td>
+      <td>{{ ders.muafMi }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="ogrenci/ders/ekle/{{ ogrenci.pk }}">Ders Ekle</a>
+{% endblock %}
